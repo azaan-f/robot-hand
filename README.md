@@ -1,10 +1,8 @@
-# Robot Hand — Webcam-Controlled Finger Movement
+# Webcam-Controlled Robot Hand
 
-Control a Hiwonder uHand robotic hand with your own hand movements. This project uses a webcam and MediaPipe to estimate finger bends, then sends smoothed servo targets to an Arduino over USB serial.
+Control a robotic hand with your own hand movements. This project uses a webcam and MediaPipe to estimate finger bends, then sends smoothed servo targets to an Arduino over USB serial.
 
-Built around a hands-on prototype with an Arduino Uno, breadboard, jumper wires, and a five-finger robotic hand, it brings computer vision and physical motion together in a simple Python workflow.
-
-## At a glance
+Prototype made with an Arduino Uno, breadboard, jumper wires, and a five-finger robotic hand. It brings computer vision and physical motion together in a simple Python workflow.
 
 - **One hand, five finger targets:** thumb, index, middle, ring, and pinky.
 - **Camera-only demos:** visualize hand landmarks and check finger bend percentages before connecting hardware.
@@ -12,7 +10,7 @@ Built around a hands-on prototype with an Arduino Uno, breadboard, jumper wires,
 - **Live feedback:** see servo values and bend percentages on the mirrored camera preview.
 - **USB serial control:** send newline-terminated commands at up to approximately 20 updates per second.
 
-> **Project status:** The Python tracking and serial sender are included. The Arduino firmware and exact servo wiring/pin assignments are not included in this repository. Physical control requires a compatible sketch on the Arduino.
+> **Project status:** The Python tracking and serial sender are included. The Arduino firmware and exact servo wiring/pin assignments are not included in this repo
 
 ## How it works
 
@@ -178,14 +176,6 @@ The smoothing state starts at 90 for each finger. Those initial values are not s
 | Preview works but the robot does not move | Check Arduino firmware, baud rate, finger order, signal wiring, shared ground, and servo power. |
 | Fingers move in the wrong direction | Calibrate `map_finger()` and `map_thumb()` for your assembly. |
 | Movement is jittery or bend values seem inaccurate | Improve lighting, keep the hand visible, reduce hand rotation, and tune smoothing and angle references. |
-
-## Possible next steps
-
-- Add the Arduino sketch and a verified wiring diagram.
-- Save calibration limits separately for each finger.
-- Add a firmware timeout and an explicit behavior for lost tracking.
-- Move the serial port and camera settings into command-line options.
-- Add build photos and a short demonstration video.
 
 ## Built with
 
